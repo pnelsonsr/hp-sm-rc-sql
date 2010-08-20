@@ -1,0 +1,7 @@
+/*----------------------------------------*/
+  DECLARE @GoodContact varchar(30) , @GoodOperator varchar(30) 
+  SET @GoodContact  = ''
+  SET @GoodOperator = ''
+/*----------------------------------------*/
+@GoodContact
+@GoodOperator

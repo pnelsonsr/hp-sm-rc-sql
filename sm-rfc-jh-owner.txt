@@ -1,0 +1,16 @@
+SELECT NUMBER,[OPEN],ORIG_OPERATOR,CNF_OWNED_BY,COORDINATOR,CNF_IMPLEMENTOR
+  FROM CM3RM1
+  WHERE [OPEN] = 't' 
+        AND (
+         ORIG_OPERATOR   = 'hamilton, jim'  OR
+         CNF_OWNED_BY    = 'hamilton, jim'  OR
+         COORDINATOR     = 'hamilton, jim'  OR
+         CNF_IMPLEMENTOR = 'hamilton, jim'
+        )
+
+SELECT NUMBER,[OPEN],CNF_OWNED_BY
+  FROM CM3RM1
+  WHERE [OPEN] = 't' 
+         AND 
+        CNF_OWNED_BY    = 'hamilton, jim'
+ 

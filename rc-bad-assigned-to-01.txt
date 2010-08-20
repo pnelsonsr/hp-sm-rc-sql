@@ -1,0 +1,63 @@
+/*----------------------------------------*/
+  DECLARE @GoodContact varchar(30) , @GoodOperator varchar(30) 
+  SET @GoodContact  = ''
+  SET @GoodOperator = ''
+/*----------------------------------------*/
+
+
+UPDATE CCM_CHANGES_CUSTOM_FIELDS
+  SET CNW_ASSIGNED_TO_          = @GoodContact
+     ,CNW_ASSIGNED_TO_ACCOUNT_  = @GoodOperator
+  FROM CCM_CHANGES cc
+    INNER JOIN CCM_CHANGES_CUSTOM_FIELDS cf
+      ON cc.REF_ID = cf.CNW_REQUEST_ID_
+ WHERE     cc.STATUS_ID                = '32792'
+       AND cf.CNW_ASSIGNED_TO_         IS NULL 
+       AND cf.CNW_ASSIGNED_TO_ACCOUNT_ <>  ''
+
+UPDATE CCM_CHANGES_CUSTOM_FIELDS
+  SET CNW_ASSIGNED_TO_          = @GoodContact
+     ,CNW_ASSIGNED_TO_ACCOUNT_  = @GoodOperator
+  FROM dev_rc4.dbo.CCM_CHANGES cc
+    INNER JOIN dev_rc4.dbo.CCM_CHANGES_CUSTOM_FIELDS cf
+      ON cc.REF_ID = cf.CNW_REQUEST_ID_
+ WHERE     cc.STATUS_ID                = '32792'
+       AND cf.CNW_ASSIGNED_TO_         IS NULL 
+       AND cf.CNW_ASSIGNED_TO_ACCOUNT_ <>  ''
+
+
+SELECT  cc.REF_ID                   as 'T1.REF'
+      , cc.STATUS_ID                as 'T1.STAT'
+      , cf.ID                       as 'T2.ID'
+      , cf.CNW_REQUEST_ID_          as 'T2.REQ'
+      , cf.CNW_ASSIGNED_TO_         as 'T2.A2'
+      , cf.CNW_ASSIGNED_TO_ACCOUNT_ as 'T2.A2A'
+ FROM CCM_CHANGES_CUSTOM_FIELDS cf
+  INNER JOIN CCM_CHANGES cc
+   ON cc.REF_ID = cf.CNW_REQUEST_ID_
+ WHERE     cc.STATUS_ID                = '32792'
+ ORDER BY cc.REF_ID
+
+
+
+
+WHERE     cf.CNW_ASSIGNED_TO_         <> '' 
+       AND cf.CNW_ASSIGNED_TO_ACCOUNT_ =  ''
+
+WHERE cf.CNW_REQUEST_ID_ = 'CM0000004'
+
+WHERE     cf.CNW_ASSIGNED_TO_         = @GoodContact
+      AND cf.CNW_ASSIGNED_TO_ACCOUNT_ = ''
+
+WHERE     cf.CNW_ASSIGNED_TO_         IS NULL 
+      AND cf.CNW_ASSIGNED_TO_ACCOUNT_ =  ''
+
+WHERE     cc.STATUS_ID                = '32792'
+      AND cf.CNW_ASSIGNED_TO_         IS NULL 
+      AND cf.CNW_ASSIGNED_TO_ACCOUNT_ =  ''
+
+WHERE     cf.CNW_ASSIGNED_TO_         <> ''
+      AND cf.CNW_ASSIGNED_TO_ACCOUNT_ =  '' 
+
+WHERE     cf.CNW_ASSIGNED_TO_         =  ''
+      AND cf.CNW_ASSIGNED_TO_ACCOUNT_ <> '' 

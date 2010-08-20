@@ -1,0 +1,30 @@
+DECLARE @MyTran varchar(20) ; SET @MyTran = 'pjn01'
+/*
+SELECT NUMBER,CNF_OWNED_BY,CNF_OWNED_BY_NT
+  FROM CM3RM1
+
+UPDATE CM3RM1
+   SET CNF_PLANNED_DAYS = '0'
+      ,CNF_OWNED_BY = 'nelson, patrick'
+      ,CNF_OWNED_BY_NT = 'pxnelson'
+
+  WHERE [OPEN] = 't' AND CNF_OWNED_BY != 'nelson, patrick' AND CNF_OWNED_BY_NT != 'pxnelson' 
+  WHERE [OPEN] = 't' AND CNF_OWNED_BY = 'nelson, patrick' AND CNF_OWNED_BY_NT = 'pxnelson' 
+
+BEGIN TRAN @MyTran
+ROLLBACK TRAN @MyTran
+COMMIT TRAN @MyTran
+*/
+
+SELECT NUMBER,CNF_OWNED_BY,CNF_OWNED_BY_NT,CNF_PLANNED_DAYS
+  FROM CM3RM1
+  WHERE [OPEN] = 't' 
+
+UPDATE CM3RM1
+   SET CNF_OWNED_BY = 'nelson, patrick'
+      ,CNF_OWNED_BY_NT = 'pxnelson'
+  WHERE [OPEN] = 't' 
+
+SELECT NUMBER,CNF_OWNED_BY,CNF_OWNED_BY_NT,CNF_PLANNED_DAYS
+  FROM CM3RM1
+  WHERE [OPEN] = 't' AND CNF_OWNED_BY = 'nelson, patrick' AND CNF_OWNED_BY_NT = 'pxnelson' 

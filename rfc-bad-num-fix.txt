@@ -1,0 +1,24 @@
+DECLARE @BadNum varchar(30) , @GoodNum varchar(30)  
+SET @BadNum  = '0000689'
+SET @GoodNum = 'CM0000689'
+/*----------------------------------------*/
+UPDATE CM3RTESTM1
+ SET   NUMBER = @GoodNum
+ WHERE NUMBER = @BadNum 
+/*----------------------------------------*/
+UPDATE ACTIVITYCM3M1
+ SET   NUMBER = @GoodNum
+ WHERE NUMBER = @BadNum
+/*----------------------------------------*/
+UPDATE DATAMODEVENTM1
+ SET   LINKEDRECORDID = @GoodNum
+ WHERE LINKEDRECORDID = @BadNum
+/*----------------------------------------*/
+UPDATE TODOLISTM1
+ SET   RECORD_ID = @GoodNum
+ WHERE RECORD_ID = @BadNum
+/*----------------------------------------*/
+UPDATE APPROVALLOGM1
+ SET   UNIQUE_KEY = @GoodNum
+ WHERE UNIQUE_KEY = @BadNum
+/*----------------------------------------*/

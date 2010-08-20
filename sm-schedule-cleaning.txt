@@ -1,0 +1,20 @@
+DECLARE @MyTran varchar(20) ; SET @MyTran = 'pjn01'
+/*
+DELETE FROM SCHEDULEM1
+  WHERE NAME       = 'message processor record' AND
+        EXPIRATION > '2010-06-01 01:00:00.000'
+  WHERE NAME LIKE 'Update%' 
+
+SELECT *
+  FROM SCHEDULEM1
+  WHERE NAME       = 'message processor record' AND
+        EXPIRATION > '2010-06-01 01:00:00.000'
+  WHERE NAME LIKE 'Update%' 
+
+BEGIN TRAN @MyTran
+ROLLBACK TRAN @MyTran
+COMMIT TRAN @MyTran
+*/
+
+SELECT *
+  FROM SCHEDULEM1
