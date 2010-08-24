@@ -1,0 +1,13 @@
+SELECT *
+  FROM CCM_CHANGES
+  WHERE EMAIL = 'nelson.patrick@con-way.com'
+
+UPDATE CCM_CHANGES 
+ SET EMAIL = 'nelson.patrick@con-way.com' 
+
+SELECT *
+  FROM CCM_CHANGES
+  WHERE EMAIL = 'nelson.patrick@con-way.com'
+
+SELECT COUNT(*) FROM CCM_CHANGES 
+  WHERE EMAIL = 'nelson.patrick@con-way.com'
