@@ -1,13 +1,17 @@
-SELECT *
-  FROM CCM_CHANGES
-  WHERE EMAIL = 'nelson.patrick@con-way.com'
+/*
+SELECT EMAIL FROM CCM_CHANGES 
+SELECT * FROM CCM_CHANGES 
 
-UPDATE CCM_CHANGES 
- SET EMAIL = 'nelson.patrick@con-way.com' 
+  WHERE EMAIL IS NULL
+  WHERE EMAIL IS NOT NULL
+  WHERE EMAIL != 'rc.test@con-way.com'
+  WHERE EMAIL = 'rc.test@con-way.com'
 
-SELECT *
-  FROM CCM_CHANGES
-  WHERE EMAIL = 'nelson.patrick@con-way.com'
+SELECT COUNT(*) FROM CCM_CHANGES WHERE EMAIL IS NULL
+UPDATE CCM_CHANGES SET EMAIL = 'rc.test@con-way.com' 
+SELECT COUNT(*) FROM CCM_CHANGES WHERE EMAIL = 'rc.test@con-way.com'
+*/
 
-SELECT COUNT(*) FROM CCM_CHANGES 
-  WHERE EMAIL = 'nelson.patrick@con-way.com'
+SELECT COUNT(*) FROM CCM_CHANGES WHERE EMAIL IS NULL OR EMAIL != 'rc.test@con-way.com'
+UPDATE CCM_CHANGES SET EMAIL = 'rc.test@con-way.com' 
+SELECT COUNT(*) FROM CCM_CHANGES WHERE EMAIL IS NOT NULL OR EMAIL = 'rc.test@con-way.com'
