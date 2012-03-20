@@ -3,6 +3,6 @@
 # Version....: 0.1.1
 # Revision...: 2010-231
 #-------------------------------------------------------------------------------
-# ToDo list for sql code project
+# ToDo list for sql-code project
 #===============================================================================
 X-sqlcode-Initial commit -> complete
